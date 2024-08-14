@@ -7,6 +7,9 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+
+     `maven-publish`
+
 }
 
 kotlin {
@@ -51,6 +54,20 @@ kotlin {
             implementation(compose.desktop.currentOs)
         }
     }
+
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
+                groupId = "com.shidocorporation.kmphelloworld"
+                artifactId = "kmphelloworld"
+                version = "0.3"
+
+
+                pom.name = "ShidoCorp Kmp Hello World"
+                pom.description = "ShidoCorp Kmp Hello World"
+            }
+        }
+    }
 }
 
 android {
@@ -60,6 +77,8 @@ android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
+
+
 
     defaultConfig {
         applicationId = "com.shidocorporation.composehelloworld"
@@ -101,3 +120,5 @@ compose.desktop {
         }
     }
 }
+
+
