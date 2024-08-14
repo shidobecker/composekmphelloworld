@@ -67,7 +67,7 @@ kotlin {
             register<MavenPublication>("release") {
                 groupId = "com.shidocorporation.kmphelloworld"
                 artifactId = "kmphelloworld"
-                version = "0.4"
+                version = "0.5"
 
 
                 pom.name = "ShidoCorp Kmp Hello World"
