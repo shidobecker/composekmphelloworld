@@ -16,7 +16,7 @@ kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+            jvmTarget.set(JvmTarget.JVM_18)
         }
     }
     
@@ -60,7 +60,7 @@ kotlin {
             register<MavenPublication>("release") {
                 groupId = "com.shidocorporation.kmphelloworld"
                 artifactId = "kmphelloworld"
-                version = "0.3"
+                version = "0.4"
 
 
                 pom.name = "ShidoCorp Kmp Hello World"
@@ -98,8 +98,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
     }
     buildFeatures {
         compose = true
