@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
 
-     `maven-publish`
+    `maven-publish`
 
 }
 
@@ -19,9 +19,9 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_18)
         }
     }
-    
+
     jvm("desktop")
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -32,10 +32,17 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
+
+        all {
+            languageSettings.apply {
+                languageVersion = "1.9"
+            }
+        }
+
         val desktopMain by getting
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
